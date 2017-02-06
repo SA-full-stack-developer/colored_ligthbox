@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>Colored Lightbox</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/lightboxPropio.css" />
+    </head>
+    <body>
+        <div>
+            <div class="columna">
+                <a data-ruta_imgg="https://images.pexels.com/photos/26279/pexels-photo-26279.jpg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" data-title="titulo 1" class="Light" title="titulo 1">
+                    <img src="https://images.pexels.com/photos/26279/pexels-photo-26279.jpg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="titulo 1" title="titulo 1">
+                </a>
+                <a data-ruta_imgg="https://images.pexels.com/photos/167085/pexels-photo-167085.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" data-title="titulo 2" class="Light" title="titulo 2">
+                    <img src="https://images.pexels.com/photos/167085/pexels-photo-167085.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="titulo 2" title="titulo 2">
+                </a>
+                <a data-ruta_imgg="https://images.pexels.com/photos/230128/pexels-photo-230128.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" data-title="titulo 3" class="Light" title="titulo 3">
+                    <img src="https://images.pexels.com/photos/230128/pexels-photo-230128.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="titulo 9" title="titulo 9">
+                </a>
+            </div>
+            <div id="contenidoLightbox" class="fadebox">
+                <div id="arcoiris" class="arcoiris">
+                    <div>
+                        <img id="imagenGrande"/>
+
+                        <div id="flechas">
+                            <div>
+                                <a id="flechaAtras" class="flechaAtras" data-ruta_imgg="" data-title="" alt="Retroceder" title="Retroceder"></a>
+                            </div>
+                            <div>
+                                <a id="flechaAdelante" class="flechaAdelante" data-ruta_imgg="" data-title="" alt="Avanzar" title="Avanzar"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tituloDescripcion">
+                        <p>Título</p>
+                        <div class="Cerrar"><a class="CerrarLightbox">X</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="js/jquery-1.10.2.js"></script>
+        <script src="js/lightboxPropio.js"></script>
+    </body>
+</html>
