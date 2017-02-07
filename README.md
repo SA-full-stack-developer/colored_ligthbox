@@ -5,13 +5,6 @@ Es un Lightbox con un degradado múltiple y que puede pasar las fotos de una a o
 
 Se compone de dos divs principales, el primero es el que 
 
-<html>
-	<head>
-		<title>Colored Lightbox</title>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="css/lightboxPropio.css" />
-    </head>
-    <body>
         <div>
             <div class="columna">
                 <a data-ruta_imgg="https://images.pexels.com/photos/26279/pexels-photo-26279.jpg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" data-title="titulo 1" class="Light" title="titulo 1">
@@ -46,10 +39,8 @@ Se compone de dos divs principales, el primero es el que
             </div>
         </div>
         
-        <script src="js/jquery-1.10.2.js"></script>
-        <script src="js/lightboxPropio.js"></script>
-    </body>
-</html>
+        <script src="https://github.com/SA-full-stack-developer/colored_ligthbox/blob/master/js/jquery-1.10.2.js"></script>
+        <script src="https://github.com/SA-full-stack-developer/colored_ligthbox/blob/master/js/lightboxPropio.js"></script>
 
 <div>
   <div class="columna">
