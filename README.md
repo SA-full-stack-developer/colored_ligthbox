@@ -62,7 +62,7 @@ Aquí le damos algunos estilos básicos. A destacar la clase arcoiris.
 
 # lightboxPropio.js
 
-El script recoge los atributos del enlace de la imagen clicada y carga esa imagen, aparte coge los atributos de la siguiente imagen y de la anterior y asigna estos elementos a las flechas
+El script recoge los atributos del enlace de la imagen clicada y carga esa imagen, aparte coge los atributos de la siguiente imagen y de la anterior y asigna estos elementos a las flechas. Al igual con el título.
 
         $(document).ready(function(){
     $('.Light, .flechaAdelante, .flechaAtras').click(function() {
