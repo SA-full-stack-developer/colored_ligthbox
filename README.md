@@ -17,6 +17,7 @@ Se compone de dos divs principales, el primero es el que contendrá las imágene
                     <img src="https://images.pexels.com/photos/230128/pexels-photo-230128.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="titulo 9" title="titulo 9">
                 </a>
             </div>
+------------------------------------------------------------------------------------------------------------------------------
             <div id="contenidoLightbox" class="fadebox">
                 <div id="arcoiris" class="arcoiris">
                     <div>
@@ -64,11 +65,14 @@ Aquí le damos algunos estilos básicos. A destacar la clase arcoiris.
 
 El script recoge los atributos del enlace de la imagen clicada y carga esa imagen, aparte coge los atributos de la siguiente imagen y de la anterior y asigna estos elementos a las flechas. Al igual con el título.
 
-        $(document).ready(function(){
-    $('.Light, .flechaAdelante, .flechaAtras').click(function() {
-        mostrarImagen(this);
-    });
-    
+--------------------------- Muestra la imagen asignada a las flechas o a la clicada --------------------------
+
+	$('.Light, .flechaAdelante, .flechaAtras').click(function() {
+        	mostrarImagen(this);
+    	});
+	
+------------------------------------------ Cierra el Lightbox ------------------------------------------------
+
     $(".CerrarLightbox").click(function(){
         var imagenGrande = document.getElementById('imagenGrande');
         
@@ -78,10 +82,14 @@ El script recoge los atributos del enlace de la imagen clicada y carga esa image
         });
     });
     
+------------------------------------------- Muestra el Ligthbox ----------------------------------------------
+
     function mostrarLightBox(){
         $('#contenidoLightbox').fadeIn('slow');
         return false;
     }
+    
+-- Función más importante, es la que se encarga de cargar los siguientes elementos para pasar de uno a otro --
     
     function mostrarImagen(e){
 	var imagenGrande = document.getElementById('imagenGrande');
@@ -160,4 +168,3 @@ El script recoge los atributos del enlace de la imagen clicada y carga esa image
         flechaAt.setAttribute("data-ruta_imgg", rutaImgGAn);
         flechaAt.setAttribute("data-title", titleImgGAn);
     }
-        });
