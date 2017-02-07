@@ -75,6 +75,8 @@ Se compone de dos divs principales, el primero es el que
       </div>
   </div>
 </div>
+<script src="https://github.com/SA-full-stack-developer/colored_ligthbox/blob/master/js/jquery-1.10.2.js"></script>
+        <script src="https://github.com/SA-full-stack-developer/colored_ligthbox/blob/master/js/lightboxPropio.js"></script>
 
 # style1.css
 
