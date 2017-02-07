@@ -3,7 +3,7 @@ Es un Lightbox con un degradado múltiple y que puede pasar las fotos de una a o
 
 # Index.html
 
-Se compone de dos divs principales, el primero es el que 
+Se compone de dos divs principales, el primero es el que contendrá las imágenes mostradas. El segundo es el Lightbox oculto que contendrá un contendor de imágen y las flechas. Al clicar sobre cualquier imagen, esta se cargará en el contenedor del Lightbox y asignará la imagen anterior y la siguiente en las flechas.
 
         <div>
             <div class="columna">
@@ -38,161 +38,126 @@ Se compone de dos divs principales, el primero es el que
                 </div>
             </div>
         </div>
-        
-        <script src="https://github.com/SA-full-stack-developer/colored_ligthbox/blob/master/js/jquery-1.10.2.js"></script>
-        <script src="https://github.com/SA-full-stack-developer/colored_ligthbox/blob/master/js/lightboxPropio.js"></script>
+ 
+ <img src="https://github.com/SA-full-stack-developer/colored_ligthbox/blob/master/images/2017-02-07_161758.png"/>
 
-<div>
-  <div class="columna">
-    <a data-ruta_imgg="https://images.pexels.com/photos/26279/pexels-photo-26279.jpg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" data-title="titulo 1" class="Light" title="titulo 1">
-      <img src="https://images.pexels.com/photos/26279/pexels-photo-26279.jpg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="titulo 1" title="titulo 1">
-    </a>
-    <a data-ruta_imgg="https://images.pexels.com/photos/167085/pexels-photo-167085.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" data-title="titulo 2" class="Light" title="titulo 2">
-      <img src="https://images.pexels.com/photos/167085/pexels-photo-167085.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="titulo 2" title="titulo 2">
-    </a>
-    <a data-ruta_imgg="https://images.pexels.com/photos/230128/pexels-photo-230128.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" data-title="titulo 3" class="Light" title="titulo 3">
-      <img src="https://images.pexels.com/photos/230128/pexels-photo-230128.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="titulo 9" title="titulo 9">
-    </a>
-  </div>
-  <div id="contenidoLightbox" class="fadebox">
-      <div id="arcoiris" class="arcoiris">
-          <div>
-              <img id="imagenGrande"/>
+# lightboxPropio.css
 
-              <div id="flechas">
-                  <div>
-                      <a id="flechaAtras" class="flechaAtras" data-ruta_imgg="" data-title="" alt="Retroceder" title="Retroceder"></a>
-                  </div>
-                  <div>
-                      <a id="flechaAdelante" class="flechaAdelante" data-ruta_imgg="" data-title="" alt="Avanzar" title="Avanzar"></a>
-                  </div>
-              </div>
-          </div>
-          <div class="tituloDescripcion">
-              <p>Título</p>
-              <div class="Cerrar"><a class="CerrarLightbox">X</a></div>
-          </div>
-      </div>
-  </div>
-</div>
-<script src="https://github.com/SA-full-stack-developer/colored_ligthbox/blob/master/js/jquery-1.10.2.js"></script>
-        <script src="https://github.com/SA-full-stack-developer/colored_ligthbox/blob/master/js/lightboxPropio.js"></script>
+Aquí le damos algunos estilos básicos. A destacar la clase arcoiris.
 
-# style1.css
+        .arcoiris{
+            background: -webkit-linear-gradient(135deg, rgba(255, 0, 0, 0.8), rgba(255, 136, 0, 0.8), rgba(255, 255, 0, 0.8), rgba(0, 255, 0, 0.8), rgba(0, 0, 255, 0.8), rgba(102, 0, 255, 0.8), rgba(204, 0, 255, 0.8));
+            background: -moz-linear-gradient(135deg, rgba(255, 0, 0, 0.8), rgba(255, 136, 0, 0.8), rgba(255, 255, 0, 0.8), rgba(0, 255, 0, 0.8), rgba(0, 0, 255, 0.8), rgba(102, 0, 255, 0.8), rgba(204, 0, 255, 0.8));
+            background: -o-linear-gradient(135deg, rgba(255, 0, 0, 0.8), rgba(255, 136, 0, 0.8), rgba(255, 255, 0, 0.8), rgba(0, 255, 0, 0.8), rgba(0, 0, 255, 0.8), rgba(102, 0, 255, 0.8), rgba(204, 0, 255, 0.8));
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.8), rgba(255, 136, 0, 0.8), rgba(255, 255, 0, 0.8), rgba(0, 255, 0, 0.8), rgba(0, 0, 255, 0.8), rgba(102, 0, 255, 0.8), rgba(204, 0, 255, 0.8));
+            height: auto;
+            padding: 10px;
+            border-radius: 10px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+        }
 
-Aquí le damos algunos estilos básicos, más que nada indicarles cuales están ocultos y cuales activos.
+# lightboxPropio.js
 
-# CSSlider.js
+El script recoge los atributos del enlace de la imagen clicada y carga esa imagen, aparte coge los atributos de la siguiente imagen y de la anterior y asigna estos elementos a las flechas
 
-Vamos donde realmente importa, al script.
-
-var active = "sliderInicio1";
-var siguiente = "sliderInicio2";
-var anterior = "sliderInicio3";
-var automatico = setInterval(function(){$("img.cambiar3").trigger("click");}, 4200);
-
-Inicializamos las variables con active es la primera imagen, siguiente es la segunda y anterior la última. Esos nombres hacen referencia al id del div que queremos mostrar en cada momento. En automático vamos a simular la pulsación de la flecha hacia delante cada 4,2 segundos, tiempo que podemos modificar.
-
----------------------------------------------------------------------------------------------------------------------------------
-
-$('a.cambiar2, img.cambiar2, img.cambiar3').click(function(){
-  clearInterval(automatico);
-  var divname = this.name;
-  var enlaces = "";
-
-  if(divname.search("sliderInicio") > -1){
-    enlaces = document.getElementById("CSSliderInicio").getElementsByTagName("a");
-    $('.CSSliderInicio li').css("background-color", '#E4E4E4');
-    cambiar(active);
-    active = divname;
-  }
-  
-  Asignamos el evento click a los "bullets", y a las dos flechas.
-  Recogemos el name del evento clicado para saber el div a mostrar.
-  Recogemos todos los enlaces para usarlos luego y ponemos todos los "bullets" de color claro, llamamos a cambiar() para que      muestre el nuevo div y oculte el actual. Cambiamos el elemento que estaba asignado como actual por el nuevo.
-  Al principio paramos el automático para que no se líe mientras cambiamos la imagen actual.
-  
----------------------------------------------------------------------------------------------------------------------------------
-
-#Función cambiar()
-
-function cambiar(activado){
-  if(!$("#"+divname ).is(":visible")){
-    $("#"+activado ).hide("fade", 900, function(){
-        $("#"+divname).show("fade", 900);
-    });
-  }
-}
-
-Esta función es la clave de todo, si el elemento que actualmente está visible lo ocultamos con una animación fade y cuando termine animamos la entrad de la nueva. Aquí podemos cambiar el fade por cualquier evento animado jquery:
-  -fade
-  -slide
-  -drop
-  -explode
-  -fold
-  -highlight
-  -puff
-  -pulsate
-  -scale
-  -shake
-  -size
-  -transfer
-  https://api.jqueryui.com/category/effects/
-  
-  con los parámetros necesarios por ejemplo si usáramos slide sería
-  $("#"+activado ).hide("slide",{direction: "right"} 900, function(){});
-  
-  Podemos controlar el tiempo de entrada y de salida a nuestro gusto y la animación pueden ser diferentes.
-  
---------------------------------------------------------------------------------------------------------------------------------
-anteriorSiguiente(enlaces);
-
-for(var y = 0; y < enlaces.length; y++){
-  if(enlaces[y].name === divname){
-    $('.' + divname).css("background-color", '#666666');
-    y = enlaces.length;
-  }
-}
-
-Añadimos una vez cambiada la imagen cual sería el siguiente y la anterior en las flechas. Cambiamos el "bullet" a oscuro.
-
---------------------------------------------------------------------------------------------------------------------------------
-#Función anteriorSiguiente()
-
-function anteriorSiguiente(enlacesCambiar){
-  for(var x = 0; x < enlacesCambiar.length; x++){
-    if(enlacesCambiar[x].name === active){
-      if(x === (enlacesCambiar.length -1)){
-        siguiente = enlacesCambiar[0].name;
-        anterior = enlacesCambiar[x - 1].name;
-      }else if(x === 0){
-        siguiente = enlacesCambiar[x + 1].name;
-        anterior = enlacesCambiar[enlaces.length -1].name;
-      }else{
-        siguiente = enlacesCambiar[x + 1].name;
-        anterior = enlacesCambiar[x - 1].name;
-      }
-    }
-  }
-
-  $("#CSNext").attr('name', siguiente);
-  $("#CSPrev").attr('name', anterior);
-}
-
-Controlamos si la imagen actual es la última o la primera para cargar las imágenes correctas.
-
---------------------------------------------------------------------------------------------------------------------------------
-
-automatico = setInterval(function(){$("img.cambiar3").trigger("click");}, 4200);
+        $(document).ready(function(){
+    $('.Light, .flechaAdelante, .flechaAtras').click(function() {
+        mostrarImagen(this);
     });
     
-    $(".imagenesGrandes").touchwipe({
-        wipeLeft: function() { $("#CSNext").trigger("click"); },
-        wipeRight: function() { $("#CSPrev").trigger("click"); },
-        min_move_x: 1,
-        min_move_y: 1,
-        preventDefaultEvents: true
+    $(".CerrarLightbox").click(function(){
+        var imagenGrande = document.getElementById('imagenGrande');
+        
+        $('#contenidoLightbox').fadeOut('slow',function(){
+            imagenGrande.setAttribute("src", "");
+            return false;
+        });
     });
-});
-
-Volvemos a cargar el automático y la última función es para los eventos de arrastre de dedos en los móviles.
+    
+    function mostrarLightBox(){
+        $('#contenidoLightbox').fadeIn('slow');
+        return false;
+    }
+    
+    function mostrarImagen(e){
+	var imagenGrande = document.getElementById('imagenGrande');
+        var contenedorEnlaces = document.getElementsByClassName("columna");
+        var flechaAd = document.getElementById("flechaAdelante");
+        var flechaAt = document.getElementById("flechaAtras");
+        var enlaces = Array();
+        var enlacesAuxiliares;
+        var indiceAux;
+        var actual;
+        var anterior;
+        var siguiente;
+        var rutaImgGAc;
+        var rutaImgGAn;
+        var rutaImgGAd;
+        var titleImgGAc;
+        var titleImgGAn;
+        var titleImgGAd;
+        
+        for (var x=0; x < contenedorEnlaces.length; x++){
+            enlacesAuxiliares = contenedorEnlaces[x].getElementsByTagName("a");
+            
+            for(var y = 0; y < enlacesAuxiliares.length; y++){
+                enlaces.push(enlacesAuxiliares[y]);
+            }
+        }
+        
+        actual = e;
+        rutaImgGAc = actual.getAttribute("data-ruta_imgg");
+        titleImgGAc = actual.getAttribute("data-title");
+        
+        $('#contenidoLightbox').fadeOut('slow',function(){
+            imagenGrande.setAttribute("src", rutaImgGAc);
+            $('#contenidoLightbox').fadeIn('slow');
+            return false;
+        });
+        $(".tituloDescripcion p").text("").slideToggle("slow");
+        $(".tituloDescripcion p").text(titleImgGAc).slideToggle("slow");
+        
+        for(var x = 0; x < enlaces.length; x++){
+            if(enlaces[x].getAttribute("data-title") === e.getAttribute("data-title")){
+                switch(this.className){
+                    case "flechaAtras":
+                        indiceAux = x - 1;
+                    break;
+                    case "flechaAdelante":
+                        indiceAux = x + 1;
+                    break;
+                    default:
+                        indiceAux = x;
+                    break;
+                }
+                
+                if(indiceAux > 0){
+                    anterior = enlaces[indiceAux - 1];
+                }else{
+                    anterior = enlaces[enlaces.length - 1];
+                }
+                
+                if(indiceAux < (enlaces.length - 1)){
+                    siguiente = enlaces[indiceAux + 1];
+                }else{
+                    siguiente = enlaces[0];
+                }
+                
+                x = enlaces.length;
+            }
+        }
+        
+        rutaImgGAn = anterior.getAttribute("data-ruta_imgg");
+        rutaImgGAd = siguiente.getAttribute("data-ruta_imgg");
+        titleImgGAn = anterior.getAttribute("data-title");
+        titleImgGAd = siguiente.getAttribute("data-title");
+        flechaAd.setAttribute("data-ruta_imgg", rutaImgGAd);
+        flechaAd.setAttribute("data-title", titleImgGAd);
+        flechaAt.setAttribute("data-ruta_imgg", rutaImgGAn);
+        flechaAt.setAttribute("data-title", titleImgGAn);
+    }
+        });
