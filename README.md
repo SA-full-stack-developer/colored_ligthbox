@@ -1,4 +1,5 @@
 # colored_ligthbox
+
 Es un Lightbox con un degradado múltiple y que puede pasar las fotos de una a otra.
 
 # Index.html
